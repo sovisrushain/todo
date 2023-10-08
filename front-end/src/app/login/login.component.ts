@@ -18,7 +18,7 @@ export class LoginComponent {
   }
 
   handleLogin() {
-    if(this.username === "admin" && this.password === "dummy") {
+    if (this.username === "admin" && this.password === "dummy") {
       this.router.navigate(['dashboard', this.username])
       this.invalidLogin = false
     } else {
