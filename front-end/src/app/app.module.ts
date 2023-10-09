@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     LoginComponent,
     DashboardComponent,
     ErrorComponent,
-    TodoListComponent
+    TodoListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
