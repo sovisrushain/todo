@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  font-size: 24px; /* Adjust the font size as needed */
+}
+
+.message {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.goodbye {
+  font-style: italic;
+  color: #555; /* Adjust the color as needed */
+}
