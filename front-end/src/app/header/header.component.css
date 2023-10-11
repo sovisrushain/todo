@@ -1,0 +1,38 @@
+.header {
+  background-color: #007bff; /* Blue background color for the header */
+  color: #fff; /* White text color */
+  padding: 20px 0; /* Adjust the padding as needed */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the nav horizontally */
+}
+
+.logo {
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold;
+}
+
+.nav-list, .auth-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item, .auth-item {
+  margin-right: 20px; /* Adjust the margin between menu items as needed */
+}
+
+.nav-item a, .auth-item a {
+  text-decoration: none;
+  color: #fff; /* White text color for links */
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.nav-item a:hover, .auth-item a:hover {
+  text-decoration: underline; /* Underline links on hover */
+}
