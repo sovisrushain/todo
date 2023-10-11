@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ToDo} from "../model/ToDo";
+import {TodoDataService} from "../service/data/todo-data.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -8,13 +9,15 @@ import {ToDo} from "../model/ToDo";
 })
 export class TodoListComponent {
 
-  todoList = [
-    new ToDo(1, 'Learn Angular', false, this.dateFormatter()),
-    new ToDo(2, 'Implement todo app backend', false, this.dateFormatter()),
-    new ToDo(3, 'Implement todo app frontend', false, this.dateFormatter())
-  ]
+  todoList: ToDo[] = []
 
-  dateFormatter() {
-    return new Date().toLocaleDateString().replaceAll("/", "-")
+  constructor(private todoService: TodoDataService) { }
+
+  ngOnInit() {
+    this.todoService.fetchAllTodos('admin').subscribe(
+      res => {
+        this.todoList = res
+      }
+    )
   }
 }

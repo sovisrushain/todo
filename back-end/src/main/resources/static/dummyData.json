@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "username": "Goku",
+    "description": "train for saving the world",
+    "targetDate": "2023-10-11T14:30:00.000+00:00",
+    "done": false
+  },
+  {
+    "id": 2,
+    "username": "Luffy",
+    "description": "become king of the pirate",
+    "targetDate": "2023-10-11T14:30:00.000+00:00",
+    "done": false
+  },
+  {
+    "id": 3,
+    "username": "Roronoa",
+    "description": "become the best swordsman",
+    "targetDate": "2023-10-11T14:30:00.000+00:00",
+    "done": false
+  },
+  {
+    "id": 4,
+    "username": "Naruto",
+    "description": "become the hokage",
+    "targetDate": "2023-10-11T14:30:00.000+00:00",
+    "done": false
+  },
+  {
+    "id": 5,
+    "username": "Saitama",
+    "description": "find a worthy opponent for fight",
+    "targetDate": "2023-10-11T14:30:00.000+00:00",
+    "done": false
+  }
+]
