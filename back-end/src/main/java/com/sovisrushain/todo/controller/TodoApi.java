@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -22,6 +23,12 @@ public class TodoApi {
         return ResponseEntity.ok(allTodos);
     }
 
+    @GetMapping(value = "/{username}/todos/{id}")
+    public ResponseEntity<TodoDto> findById(@PathVariable String username, @PathVariable Long id) {
+        TodoDto todo = todoService.findById(id);
+        return ResponseEntity.ok(todo);
+    }
+
     @PostMapping(value = "/{username}/todos")
     public ResponseEntity<Long> saveTodo(@PathVariable String username, @RequestBody TodoDto todoDto) {
         Long id = todoService.saveTodo(username, todoDto);
@@ -33,8 +40,9 @@ public class TodoApi {
 //        return null;
 //    }
 //
-//    @DeleteMapping("/{username}/todos/{id}")
-//    public ResponseEntity<Long> deleteTodo(@PathVariable String username, @PathVariable Long id) {
-//        return null;
-//    }
+    @DeleteMapping("/{username}/todos/{id}")
+    public ResponseEntity<Long> deleteTodo(@PathVariable String username, @PathVariable Long id) {
+        Long delId = todoService.deleteTodo(username, id);
+        return ResponseEntity.ok(delId);
+    }
 }

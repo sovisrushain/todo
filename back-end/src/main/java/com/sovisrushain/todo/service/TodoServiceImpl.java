@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +26,19 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
+    public TodoDto findById(Long id) {
+        Todo todo = todoRepository.findById(id).get();
+        return mapper.map(todo, TodoDto.class);
+    }
+
+    @Override
     public Long saveTodo(String username, TodoDto todoDto) {
         return todoRepository.save(mapper.map(todoDto, Todo.class)).getId();
+    }
+
+    @Override
+    public Long deleteTodo(String username, Long id) {
+        todoRepository.deleteById(id);
+        return id;
     }
 }
