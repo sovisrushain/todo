@@ -1,5 +1,8 @@
 <div class="container">
   <p class="title">My Todos</p>
+  <div>
+    <button (click)="addTodo()">Add Todo</button>
+  </div>
   <table class="todo-table">
     <caption></caption>
     <thead>
@@ -7,7 +10,8 @@
         <th>Description</th>
         <th>Target Date</th>
         <th>Status</th>
-        <th>Actions</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +19,7 @@
         <td>{{todo.description}}</td>
         <td>{{todo.targetDate}}</td>
         <td>{{todo.done}}</td>
+        <td><button (click)="updateToDo(todo.id)">Update</button></td>
         <td><button (click)="deleteToDo(todo.id)">Delete</button></td>
       </tr>
     </tbody>

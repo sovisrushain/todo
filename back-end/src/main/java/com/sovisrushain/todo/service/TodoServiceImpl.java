@@ -37,6 +37,13 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
+    public Long updateTodo(String username, TodoDto todoDto, Long id) {
+        Todo todo = mapper.map(todoDto, Todo.class);
+        todo.setId(id);
+        return todoRepository.save(todo).getId();
+    }
+
+    @Override
     public Long deleteTodo(String username, Long id) {
         todoRepository.deleteById(id);
         return id;

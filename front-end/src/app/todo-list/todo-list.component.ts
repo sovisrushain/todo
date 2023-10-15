@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ToDo} from "../model/ToDo";
 import {TodoDataService} from "../service/data/todo-data.service";
-import {logMessages} from "@angular-devkit/build-angular/src/tools/esbuild/utils";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-todo-list',
@@ -12,7 +12,8 @@ export class TodoListComponent {
 
   todoList: ToDo[] = []
 
-  constructor(private todoService: TodoDataService) { }
+  constructor(private todoService: TodoDataService,
+              private router: Router) { }
 
   ngOnInit() {
       this.fetchAllTodos()
@@ -26,9 +27,17 @@ export class TodoListComponent {
 
   deleteToDo(id: number) {
     this.todoService.deleteTodo('admin', id).subscribe(
-      res => {
-        this.fetchAllTodos()
-      }
+      res => this.fetchAllTodos()
     )
+  }
+
+  updateToDo(id: number) {
+    let filteredTodo = this.todoList.filter(todo => todo.id == id);
+    console.log(filteredTodo)
+    this.router.navigate(['todos', id])
+  }
+
+  addTodo() {
+    this.router.navigate(['todos', 0])
   }
 }
