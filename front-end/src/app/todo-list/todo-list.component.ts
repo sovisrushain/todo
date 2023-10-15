@@ -38,6 +38,6 @@ export class TodoListComponent {
   }
 
   addTodo() {
-    this.router.navigate(['todos', 0])
+    this.router.navigate(['todos/save'])
   }
 }

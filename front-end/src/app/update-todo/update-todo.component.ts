@@ -5,13 +5,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  templateUrl: './update-todo.component.html',
+  styleUrls: ['./update-todo.component.css']
 })
-export class TodoComponent {
+export class UpdateTodoComponent {
 
   id = 0
-  todo = new ToDo(this.id, '', '', '', false)
+  todo = new ToDo(this.id, '', '', false)
 
   constructor(private router: Router,
               private todoService: TodoDataService,
@@ -30,21 +30,12 @@ export class TodoComponent {
   }
 
   saveTodo() {
-    if (this.id == 0) {
-      console.log(this.todo)
-      this.todoService.saveTodo('admin', this.todo).subscribe(
-        res => this.fetchAllAndNavigate()
-      )
-    } else {
       this.todoService.updateTodo('admin', this.id, this.todo).subscribe(
-        res => this.fetchAllAndNavigate()
+        res => {
+          this.todoService.fetchAllTodos('admin').subscribe(
+            res => this.router.navigate(['todos'])
+          )
+        }
       )
     }
-  }
-
-  fetchAllAndNavigate() {
-    this.todoService.fetchAllTodos('admin').subscribe(
-      res => this.router.navigate(['todos'])
-    )
-  }
 }

@@ -25,7 +25,7 @@ export class TodoDataService {
     return this.http.put(`http://localhost:8082/users/${username}/todos/${id}`, todo)
   }
 
-  saveTodo(username: string, todo: ToDo) {
-    return this.http.post(`http://localhost:8082/users/${username}/todos`,todo)
+  saveTodo(username: string, description: string) {
+    return this.http.post(`http://localhost:8082/users/${username}/todos/${description}`, null)
   }
 }

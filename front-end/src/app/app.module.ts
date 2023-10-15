@@ -11,7 +11,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { HeaderComponent } from './header/header.component';
 import { LogoutComponent } from './logout/logout.component';
 import {HttpClientModule} from "@angular/common/http";
-import { TodoComponent } from './todo/todo.component';
+import { UpdateTodoComponent } from './update-todo/update-todo.component';
+import { SaveTodoComponent } from './save-todo/save-todo.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TodoComponent } from './todo/todo.component';
     TodoListComponent,
     HeaderComponent,
     LogoutComponent,
-    TodoComponent,
+    UpdateTodoComponent,
+    SaveTodoComponent,
   ],
   imports: [
     BrowserModule,

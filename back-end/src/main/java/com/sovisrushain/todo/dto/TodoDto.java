@@ -13,6 +13,5 @@ public class TodoDto {
     private long id;
     private String username;
     private String description;
-    private Date targetDate;
     private boolean isDone;
 }

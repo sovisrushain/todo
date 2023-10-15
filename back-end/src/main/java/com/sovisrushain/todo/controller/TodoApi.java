@@ -28,9 +28,9 @@ public class TodoApi {
         return ResponseEntity.ok(todo);
     }
 
-    @PostMapping(value = "/{username}/todos")
-    public ResponseEntity<Long> saveTodo(@PathVariable String username, @RequestBody TodoDto todoDto) {
-        Long id = todoService.saveTodo(username, todoDto);
+    @PostMapping(value = "/{username}/todos/{description}")
+    public ResponseEntity<Long> saveTodo(@PathVariable String username, @PathVariable String description) {
+        Long id = todoService.saveTodo(username, description);
         return ResponseEntity.ok(id);
     }
 
