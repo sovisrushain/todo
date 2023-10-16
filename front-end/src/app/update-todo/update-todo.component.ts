@@ -23,13 +23,12 @@ export class UpdateTodoComponent {
     this.id = this.route.snapshot.params['id'];
     if(this.id != 0) {
       this.todoService.findTodoById('admin', this.id).subscribe(
-        data => this.todo = data,
-        error => console.log(error.message)
+        res => res = this.todo
       )
     }
   }
 
-  saveTodo() {
+  editTodo() {
       this.todoService.updateTodo('admin', this.id, this.todo).subscribe(
         res => {
           this.todoService.fetchAllTodos('admin').subscribe(

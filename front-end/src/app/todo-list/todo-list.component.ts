@@ -33,7 +33,6 @@ export class TodoListComponent {
 
   updateToDo(id: number) {
     let filteredTodo = this.todoList.filter(todo => todo.id == id);
-    console.log(filteredTodo)
     this.router.navigate(['todos', id])
   }
 
