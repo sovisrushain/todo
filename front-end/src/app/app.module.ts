@@ -10,6 +10,9 @@ import { ErrorComponent } from './error/error.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { HeaderComponent } from './header/header.component';
 import { LogoutComponent } from './logout/logout.component';
+import {HttpClientModule} from "@angular/common/http";
+import { UpdateTodoComponent } from './update-todo/update-todo.component';
+import { SaveTodoComponent } from './save-todo/save-todo.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { LogoutComponent } from './logout/logout.component';
     ErrorComponent,
     TodoListComponent,
     HeaderComponent,
-    LogoutComponent
+    LogoutComponent,
+    UpdateTodoComponent,
+    SaveTodoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

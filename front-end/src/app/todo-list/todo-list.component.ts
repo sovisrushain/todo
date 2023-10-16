@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {ToDo} from "../model/ToDo";
+import {TodoDataService} from "../service/data/todo-data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-todo-list',
@@ -8,13 +10,33 @@ import {ToDo} from "../model/ToDo";
 })
 export class TodoListComponent {
 
-  todoList = [
-    new ToDo(1, 'Learn Angular', false, this.dateFormatter()),
-    new ToDo(2, 'Implement todo app backend', false, this.dateFormatter()),
-    new ToDo(3, 'Implement todo app frontend', false, this.dateFormatter())
-  ]
+  todoList: ToDo[] = []
 
-  dateFormatter() {
-    return new Date().toLocaleDateString().replaceAll("/", "-")
+  constructor(private todoService: TodoDataService,
+              private router: Router) { }
+
+  ngOnInit() {
+      this.fetchAllTodos()
+  }
+
+  fetchAllTodos() {
+    this.todoService.fetchAllTodos('admin').subscribe(
+      res => this.todoList = res
+    )
+  }
+
+  deleteToDo(id: number) {
+    this.todoService.deleteTodo('admin', id).subscribe(
+      res => this.fetchAllTodos()
+    )
+  }
+
+  updateToDo(id: number) {
+    let filteredTodo = this.todoList.filter(todo => todo.id == id);
+    this.router.navigate(['todos', id])
+  }
+
+  addTodo() {
+    this.router.navigate(['todos/save'])
   }
 }

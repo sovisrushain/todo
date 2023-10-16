@@ -1,0 +1,8 @@
+<div class="container">
+  <label for="description">Description</label>
+  <input [(ngModel)]="todo.description"  [value]="todo.description" type="text" id="description" name="description" required="required" class="input-field">
+  <label for="status">Status</label>
+  <input [(ngModel)]="todo.done" type="checkbox" id="status" name="isDone" class="checkbox">
+  <button (click)="editTodo()" class="save-button">Save</button>
+</div>
+
