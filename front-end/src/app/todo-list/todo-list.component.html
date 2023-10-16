@@ -3,7 +3,7 @@
   <div class="button-container">
     <button class="add-button" (click)="addTodo()">Add Todo</button>
   </div>
-  <table class="todo-table">
+  <table *ngIf="todoList.length != 0" class="todo-table">
     <caption></caption>
     <thead>
     <tr>
