@@ -28,4 +28,11 @@ export class TodoDataService {
   saveTodo(username: string, description: string) {
     return this.http.post(`http://localhost:8082/users/${username}/todos/${description}`, null)
   }
+
+  // createBasicAuthHeader() {
+  //   let username = 'admin'
+  //   let password = 'root'
+  //   let basicAuthString = 'Basic' + window.btoa(username + ':' + password)
+  //   return basicAuthString
+  // }
 }
